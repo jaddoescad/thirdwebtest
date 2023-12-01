@@ -45,7 +45,7 @@ const Home: NextPage = () => {
               auth={{
                 loginOptional: false,
                 onLogin: () => {
-                  alert("Logged in!");
+                  console.log("Logged in!");
                 },
                 onLogout: () => {
                   console.log("Logged out!");
