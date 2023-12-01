@@ -1,9 +1,21 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, useAuth } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import { NextPage } from "next";
+import { useLogin } from "@thirdweb-dev/react";
+import {
+  useAddress,
+  useLogout,
+  useMetamask,
+  useSDK,
+  useUser,
+} from "@thirdweb-dev/react";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+
+
+
   return (
     <main className={styles.main}>
       <div className={styles.container}>
@@ -29,6 +41,16 @@ const Home: NextPage = () => {
 
           <div className={styles.connect}>
             <ConnectWallet
+              modalSize="compact"
+              auth={{
+                loginOptional: false,
+                onLogin: () => {
+                  alert("Logged in!");
+                },
+                onLogout: () => {
+                  console.log("Logged out!");
+                },
+              }}
               dropdownPosition={{
                 side: "bottom",
                 align: "center",
